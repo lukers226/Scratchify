@@ -1,0 +1,24 @@
+name: flutter_scratch_card
+description: A production-ready, highly customizable scratch card widget for Flutter with support for image overlays, Lottie celebrations, and progress triggers.
+version: 1.0.0
+homepage: https://github.com/lukers226/Scratchify
+repository: https://github.com/lukers226/Scratchify
+issue_tracker: https://github.com/lukers226/Scratchify/issues
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lottie: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  # Any package assets go here if you include them in the package itself.
+  # For now, we assume users provide their own assets for overlays and animations.
