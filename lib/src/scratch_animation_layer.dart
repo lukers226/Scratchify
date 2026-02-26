@@ -41,13 +41,13 @@ class ScratchAnimationLayer extends StatefulWidget {
   final bool removeAnimationOnComplete;
 
   const ScratchAnimationLayer({
-    Key? key,
+    super.key,
     required this.animationType,
     required this.child,
     this.assetPath,
     this.autoPlay = false,
     this.removeAnimationOnComplete = true,
-  }) : super(key: key);
+  });
 
   @override
   State<ScratchAnimationLayer> createState() => _ScratchAnimationLayerState();

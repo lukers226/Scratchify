@@ -1,4 +1,4 @@
-library flutter_scratch_card;
+
 
 export 'src/scratch_card.dart';
 export 'src/scratch_controller.dart';

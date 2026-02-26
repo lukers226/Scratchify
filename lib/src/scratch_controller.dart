@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'scratch_state.dart';
 
 /// Controller for the [ScratchCard] widget.

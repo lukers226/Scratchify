@@ -119,7 +119,7 @@ class ScratchCard extends StatefulWidget {
   final Duration revealDuration;
 
   const ScratchCard({
-    Key? key,
+    super.key,
     required this.child,
     this.width,
     this.height,
@@ -142,7 +142,7 @@ class ScratchCard extends StatefulWidget {
     this.animationRepeat = true,
     this.removeAnimationOnComplete = true,
     this.revealDuration = const Duration(milliseconds: 500),
-  }) : super(key: key);
+  });
 
   @override
   State<ScratchCard> createState() => _ScratchCardState();
@@ -255,7 +255,15 @@ class _ScratchCardState extends State<ScratchCard>
     } else {
       if (_revealController.value > 0) {
         _revealController.reverse();
+      }
+      if (_animationPlaying) {
         setState(() => _animationPlaying = false);
+      }
+      // Reset local tracking if the state itself was reset to 0 progress.
+      if (progress == 0) {
+        _firedTriggers.clear();
+        _thresholdFired = false;
+        _tracker.reset();
       }
     }
 
@@ -315,16 +323,6 @@ class _ScratchCardState extends State<ScratchCard>
     if (widget.enableHaptics) ScratchUtils.triggerHaptic();
   }
 
-  // ─── Reset ───────────────────────────────────────────────────────────────
-
-  void _resetInternal() {
-    _firedTriggers.clear();
-    _thresholdFired = false;
-    _animationPlaying = false;
-    _tracker.reset();
-    _state.reset();
-    _revealController.reset();
-  }
 
   // ─── Safe child: force transparent background when animation is active ───
 
